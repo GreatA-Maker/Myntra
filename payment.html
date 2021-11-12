@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://iconape.com/wp-content/png_logo_vector/myntra-logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #myform {
+            display: grid;
+            margin-left: 50px;
+            grid-template-columns: 200px 400px;
+            gap: 7%;
+            font-size: 17px;
+
+        }
+
+        input[type=text] {
+            height: 32px;
+
+        }
+
+        input[type=number] {
+            height: 32px;
+            margin-right: 15px;
+
+        }
+
+        input[type=tel] {
+            height: 32px;
+
+        }
+
+        input[type=address] {
+            height: 55px;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 10px 33px;
+            margin-top: 10px;
+            font-size: 22px;
+        }
+
+        #finalAdd {
+            display: grid;
+            border: 2px solid #ECEFF1;
+            width: 20%;
+            margin-left: 20px;
+            padding: 6px;
+            gap: 6px;
+
+        }
+
+        #myform>button {
+            grid-area: 9/2/10/3;
+            width: 50%;
+            background-color: #E91E63;
+            color: white;
+            padding: 10px 10px;
+            border: 2px solid #E91E63;
+        }
+
+        #boxbtn {
+            background-color: #E91E63;
+            color: white;
+            padding: 7px 10px;
+            border: 2px solid #E91E63;
+            width: 50%;
+
+        }
+
+        /* #pay {
+            border: 2px solid blue;
+
+        } */
+
+        #box2 {
+            display: flex;
+            /* grid-template-columns: 30% 50%; */
+            gap: 10px;
+        }
+
+        #buttondiv {
+            /* border: 2px solid #E91E63; */
+            /* display: grid; */
+            /* width: 10%; */
+            /* gap: 12px; */
+            /* padding: 10px; */
+            border-right: 1px solid #e5e5e5;
+            display: flex;
+            flex-direction: column;
+            width: 142px;
+        }
+
+        #buttondiv>button {
+            /* padding: 13px 10px; */
+            width: 142px;
+            height: 50px;
+            background-color: white;
+            border: 0;
+        }
+
+        #buttondiv>button:hover {
+            /* padding: 13px 10px; */
+            background-color: #e5e5e5;
+            /* border: 2px solid #BDBDBD; */
+        }
+
+        #buttondiv>button:focus {
+            border-left: 2px solid red;
+            border-right: 2px solid white;
+        }
+
+        #contentDiv {
+            /* border: 2px solid green; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        #cardInfo {
+            display: grid;
+            grid-template-columns: 15% 30%;
+            gap: 9px;
+            margin: 15px
+        }
+
+        #cardInfo>button {
+            height: 45px;
+            width: 185px;
+            background-color: #e40046;
+            border: #e40046;
+            border-radius: 6px;
+            color: white;
+        }
+
+
+        #cashInfo {
+            /* background-color: hotpink;
+            display: grid;
+            grid-template-columns: 15% 30%;
+            gap: 9px; */
+            margin: 15px
+        }
+
+        #cashInfo>button {
+            height: 45px;
+            width: 185px;
+            background-color: #e40046;
+            border: #e40046;
+            border-radius: 6px;
+            color: white;
+        }
+
+        #upiInfo {
+            /* background-color: indigo; */
+            /* display: grid;
+            grid-template-columns: 30% 15%; */
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin: 15px;
+        }
+
+        #verify {
+            color: white;
+            text-align: center;
+            margin: auto;
+            padding: 10px;
+            background-color: black;
+        }
+
+        #upiInfo>div>button {
+            height: 45px;
+            width: 185px;
+            background-color: #e40046;
+            border: #e40046;
+            border-radius: 6px;
+            color: white;
+        }
+
+        #proceedtoPaybtn {
+            height: 45px;
+            width: 185px;
+            background-color: #e40046;
+            border: #e40046;
+            border-radius: 6px;
+            color: white;
+            margin-left: 80%;
+        }
+
+        #cardhead {
+            margin: 53px -101px;
+            width: 255px;
+            color: #BDBDBD;
+        }
+
+        #cardpara {
+            margin: -45px 1px;
+            width: 376px;
+
+        }
+
+        #cashhead {
+            color: #BDBDBD;
+        }
+
+    
+
+        #upihead {
+            margin-top: 0;
+            width: 426px;
+            color: #BDBDBD;
+        }
+
+        #cart-contents {
+            height: 400px;
+            overflow-y: scroll;
+            font-size: 14px;
+            color: #666;
+        }
+
+        #cart-contents>div {
+            display: flex;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgb(211, 209, 209);
+            height: 140px;
+            justify-content: space-between;
+        }
+
+        #cart-contents>div img {
+            width: 100%;
+        }
+
+        #cart-contents>div>div:nth-of-type(1) {
+            display: flex;
+            width: 30%;
+        }
+
+        #cart-contents>div>div:nth-of-type(1)>div:nth-of-type(1) {
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        #cart-contents>div>div:nth-of-type(1)>div:nth-of-type(2)>p {
+            width: 175px;
+            height: 75px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 10 0px;
+        }
+
+        #cart-contents>div>div:nth-of-type(1)>div:nth-of-type(2)>button {
+            background-color: transparent;
+            border: 0;
+            color: #666;
+            cursor: pointer;
+        }
+
+        #cart-contents>div>div:nth-of-type(2) {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #cart-contents>div>div:nth-of-type(3) {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #cart-contents>div>div:nth-of-type(4) {
+            width: 25%;
+        }
+
+        #cart-contents>div>div:nth-of-type(4)>p {
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        #cart-contents>div>div:nth-of-type(4)>p>span {
+            color: #60bf79;
+            margin-left: 5px;
+        }
+
+        #cart-contents>div>div:nth-of-type(5) {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+        #cart-contents {
+            height: 300px;
+            /* border: 2px solid green; */
+        }
+
+        /* CSS for top bar */
+        #top-bar {
+            background-color: #e53f46;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #top-bar>div {
+            max-width: 1024px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            font-size: 13px;
+        }
+
+        #payment-area{
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            padding-top: 120px;
+            background-color: white;
+            min-height: 500px;
+            max-width: 1024px;
+            margin: auto;
+        }
+
+
+        @media (min-width:1366px) {
+            #top-bar>div, #payment-area {
+                max-width: 1280px;
+            }
+        }
+
+        /*  Nav bar  */
+        
+        #nav{
+            display: flex;
+            position: fixed;
+            background-color: #fff;
+            width: 100%;
+            padding: 20px 3% 20px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+
+        #nav > p {
+            margin-left: 5px; 
+        }
+
+        #nav > div {
+            margin-left: 20px; 
+        }
+
+        #nav > img{
+            width: 50px;
+            height: 40px;
+        }
+
+        #nav  > img:nth-child(2){
+            width: 450px;
+            margin-left: 400px;
+        }
+
+        #nav  > img:nth-child(3){
+            width: 200px;
+            margin-left: 300px;
+        }
+
+        #nav > button {
+            margin-left: 250px; 
+            color: grey;
+            width: 50px;
+            background-color: whitesmoke;
+            border: none;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            
+        }
+
+        #navinput {
+            
+            width: 380px;
+            border: none;
+            background-color: whitesmoke;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        #logo{
+            width: 65px;
+            height: 42px;
+        }
+
+
+        /*  Nav bar  */
+    </style>
+</head>
+
+<body>
+     <!-- Top navigation starts -->
+    
+     <div id="nav">
+        <img id="logo" src="https://cdn.freelogovectors.net/wp-content/uploads/2021/02/myntra-logo-freelogovectors.net_.png">
+        
+
+        <img src="images/mid.png">
+        <img src="images/end.png">
+    </div>
+    <!-- Top navigation ends -->
+
+    <div id="payment-area">
+        <h1>Delivery Address</h1>
+
+        <form action="" onsubmit="daddress(event)" id="myform">
+            <label for="">Pincode</label>
+            <input type="number" name="" id="pincode" placeholder="6 digit pincode" required>
+
+            <label for="">Name</label>
+            <input type="text" id="name" placeholder="Full Name" required>
+
+            <label for="">Address</label>
+            <input type="address" id="address" placeholder="Flat/House No. Colony/Street No." required>
+
+            <label for="">Locality/Landmark</label>
+            <input type="text" id="landmark" placeholder="Eg. Near Apollo Hospital">
+
+            <label for="">City</label>
+            <input type="text" name="" id="city" placeholder="City">
+
+            <label for="">State</label>
+            <input type="text" id="state" placeholder="State" required>
+
+            <label for="">Mobile Number</label>
+            <input type="tel" name="" id="mobile" placeholder="10 digit mobile number" required>
+
+            <label for="">Address Type</label>
+            <div id="address">
+                <label for="">Home/Personal</label>
+                <input type="radio" value="Home/Personal" id="r1" name="1" required>
+                <label for="">Office/Commercial</label>
+                <input type="radio" value="Office/Com" id="r2" name="1" required>
+            </div>
+
+            <button>Save and Continue</button>
+        </form>
+        <div id="deliv"></div>
+        <div id="cart-contents">
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    let myform = document.getElementById('myform');
+    function daddress(e) {
+        e.preventDefault();
+
+        let pincode = document.getElementById('pincode').value;
+        let name = document.getElementById('name').value;
+
+        let address = document.getElementById('address').value;
+        let landmark = document.getElementById('landmark').value;
+        let city = document.getElementById('city').value;
+        let state = document.getElementById('state').value;
+        let mobile = document.getElementById('mobile').value;
+        let addressTy = document.getElementById('address').value;
+
+        if (addressTy == 'Home/Personal') {
+            add_value = document.getElementById('r1').value;
+
+        } else {
+            add_value = document.getElementById('r2').value;
+        }
+        console.log(pincode, name, address, landmark, city, state, mobile, add_value);
+
+        myform.style.display = "none";
+
+        let div = document.createElement('div');
+        div.id = "finalAdd";
+        nameDiv = document.createElement('div');
+        nameDiv.append(name);
+
+        addressDiv = document.createElement('div')
+        addressDiv.append(address);
+
+
+        cityDiv = document.createElement('div');
+        cityDiv.append(city + " - " + pincode);
+
+        stateDiv = document.createElement('div');
+        stateDiv.append(state);
+
+        mobileDiv = document.createElement('div');
+        mobileDiv.append("Phone: " + mobile);
+
+
+        let boxBotton = document.createElement('button');
+        boxBotton.id = 'boxbtn';
+        boxBotton.textContent = "DELIVERY HERE";
+        div.append(nameDiv, addressDiv, cityDiv, stateDiv, mobileDiv, boxBotton);
+        document.getElementById('deliv').append(div);
+
+        let clickCount = 0;
+        boxBotton.onclick = function () {
+            clickCount++;
+            boxBotton.style.display = "none";
+            // payment(clickCount);
+            let h1 = document.createElement('h1');
+            h1.textContent = 'Review Cart';
+            document.getElementById("deliv").append(h1)
+            fillCartContent()
+        }
+
+
+    }
+
+    function fillCartContent() {
+        let cart_contents = document.getElementById("cart-contents");
+        let cart_items = JSON.parse(localStorage.getItem("mycart"));
+
+
+        let items = {};
+        cart_items.forEach(e => {
+            if (items[e.name] == undefined) {
+                items[e.name] = [1, e];
+            } else {
+                items[e.name][0]++;
+            }
+        })
+        // total_items_overlay_cart.innerText = "(" + cart_items.length + " Items)"
+        console.log(items);
+
+        cart_contents.innerHTML = "";
+
+        let sum = 0;
+        for (let k in items) {
+
+            let data = items[k][1];
+            let container = document.createElement("div");
+
+            sum += Math.floor((data.price * (1 - (data.discount * 0.01))) * (items[k][0]));
+
+            let div1 = document.createElement("div");
+            let div1_0 = document.createElement("div");
+            let img = document.createElement("img");
+            img.src = data.image1;
+            div1_0.append(img);
+            let div1_1 = document.createElement("div");
+            let name = document.createElement("p");
+            name.textContent = data.name;
+            let remove = document.createElement("button");
+            remove.textContent = "X REMOVE";
+
+            //try to add remove item from the cart
+            remove.onclick = function () {
+                removeItem(k);
+            }
+
+            div1_1.append(name, remove);
+            div1.append(div1_0, div1_1);
+
+            let div2 = document.createElement("div");
+            let price = document.createElement("p");
+            price.textContent = "Rs." + Math.floor(data.price * (1 - (data.discount * 0.01)));
+            div2.append(price);
+
+            let div3 = document.createElement("div");
+            let quantity = document.createElement("p");
+            quantity.textContent = items[k][0];
+            div3.append(quantity);
+
+            let div4 = document.createElement("div");
+            let availability = document.createElement("p");
+            availability.textContent = "Standard Delivery By 08 Oct";
+            let free = document.createElement("span");
+            free.textContent = "FREE";
+            availability.append(free);
+            div4.append(availability);
+
+            let div5 = document.createElement("div");
+            let sub = document.createElement("p");
+            sub.textContent = "Rs." + Math.floor((data.price * (1 - (data.discount * 0.01))) * (items[k][0]));
+            div5.append(sub);
+            container.append(div1, div2, div3, div4, div5)
+
+            cart_contents.append(container);
+        }
+        let proceedtoPaybtn = document.createElement('button')
+        proceedtoPaybtn.textContent = "PROCEED TO PAY Rs. " + sum;
+        document.getElementById("cart-contents").append(proceedtoPaybtn)
+        proceedtoPaybtn.id = "proceedtoPaybtn"
+        clickk = 0
+        proceedtoPaybtn.onclick = function () {
+            clickk++
+            payment(clickk)
+        }
+
+    }
+
+    function removeItem(r) {
+        let cart_items = JSON.parse(localStorage.getItem("mycart"));
+        let new_cart_items = [];
+        let found = false;
+        for (let i = 0; i < cart_items.length; i++) {
+            if (cart_items[i].name == r && !found) {
+                found = true;
+            } else {
+                new_cart_items.push(cart_items[i]);
+            }
+        }
+        console.log(new_cart_items);
+        localStorage.setItem("mycart", JSON.stringify(new_cart_items));
+        if (new_cart_items.length == 0) {
+            showCart();
+        } else {
+            fillCartContent();
+        }
+        // var totalSumofNewCart=0
+        // for(i=0;i<new_cart_items.length;i++){
+        //     totalSumofNewCart=totalSumofNewCart+new_cart_items[i].price
+        // }
+        // return totalSumofNewCart;
+    }
+    // console.log(totalSumofNewCart)
+    let arrofCart = JSON.parse(localStorage.getItem('mycart'));
+    sum = 0;
+
+    for (let i = 0; i < arrofCart.length; i++) {
+        sum = sum + Math.floor(arrofCart[i].price * (1 - (arrofCart[i].discount * 0.01)));
+    }
+    function payment(c) {
+        if (c == 1) {
+
+            let paymentDiv = document.createElement('div');
+            paymentDiv.id = 'pay';
+            let h1 = document.createElement('h1');
+            h1.textContent = 'Make Payment';
+            document.getElementById('payment-area').append(paymentDiv);
+
+            let box2 = document.createElement('div');
+            box2.id = 'box2';
+
+            //create button div and add 3 payment option button
+            let buttonDiv = document.createElement('div');
+            buttonDiv.id = 'buttondiv';
+
+            let creditbtn = document.createElement('button');
+            creditbtn.textContent = 'Credit Card';
+            creditbtn.onclick = function () {
+                contentDiv.innerHTML = null;
+                creditCard();
+            }
+
+            let cashbtn = document.createElement('button');
+            cashbtn.textContent = 'Cash on Delivery';
+            cashbtn.onclick = function () {
+                contentDiv.innerHTML = null;
+                cashON();
+            }
+
+            let upiBtn = document.createElement('button');
+            upiBtn.textContent = 'UPI';
+            upiBtn.onclick = function () {
+                contentDiv.innerHTML = null;
+                upi();
+            }
+
+            buttonDiv.append(creditbtn, cashbtn, upiBtn);
+
+            //create content of payment option button
+            let contentDiv = document.createElement('div');
+            contentDiv.id = 'contentDiv';
+
+            let contentHeadingDiv = document.createElement('div');
+            contentHeadingDiv.textContent = 'Pay using Credit Card';
+
+            let cardInfo = document.createElement('form');
+            cardInfo.id = "cardInfo";
+
+
+            let cardNoLabel = document.createElement('label');
+            cardNoLabel.textContent = "Card Number";
+
+            let cardinput = document.createElement('input');
+            cardinput.type = "number";
+            cardinput.required = true;
+
+
+            let exDateLabel = document.createElement('label');
+            exDateLabel.textContent = "Expiry Date";
+
+            let exdateinput = document.createElement('input');
+            exdateinput.type = "text";
+            exdateinput.placeholder = "MM/YY";
+            exdateinput.required = true;
+            //    console.log(exdateinput)
+
+            let cvvLabel = document.createElement('label');
+            cvvLabel.textContent = "CVV";
+
+            let cvvinput = document.createElement('input');
+            cvvinput.type = "password";
+            cvvinput.required = true;
+
+
+            let finalPaybtn = document.createElement('button');
+            finalPaybtn.textContent = 'PAY RS.' + sum;
+
+            cardInfo.append(cardNoLabel, cardinput, exDateLabel, exdateinput, cvvLabel, cvvinput, finalPaybtn);
+
+            cardInfo.onsubmit = function (event) {
+                event.preventDefault();
+                alert("Payment Successfully Done");
+            }
+
+            contentDiv.append(contentHeadingDiv, cardInfo);
+            box2.append(buttonDiv, contentDiv);
+            paymentDiv.append(h1, box2);
+
+
+        }
+
+
+
+    }
+    function creditCard() {
+
+        let contentHeadingDiv = document.createElement('div');
+        contentHeadingDiv.textContent = 'Pay using Credit Card';
+
+        let cardInfo = document.createElement('form');
+        cardInfo.id = "cardInfo";
+
+
+        let cardNoLabel = document.createElement('label');
+        cardNoLabel.textContent = "Card Number";
+
+        let cardinput = document.createElement('input');
+        cardinput.type = "number";
+        cardinput.required = true;
+
+
+        let exDateLabel = document.createElement('label');
+        exDateLabel.textContent = "Expiry Date";
+
+        let exdateinput = document.createElement('input');
+        exdateinput.type = "text";
+        exdateinput.placeholder = "MM/YY";
+        exdateinput.required = true;
+        //    console.log(exdateinput)
+
+        let cvvLabel = document.createElement('label');
+        cvvLabel.textContent = "CVV";
+
+        let cvvinput = document.createElement('input');
+        cvvinput.type = "password";
+        cvvinput.required = true;
+
+
+        let finalPaybtn = document.createElement('button');
+        finalPaybtn.textContent = 'PAY RS.' + sum;
+
+        let h6 = document.createElement("h6");
+        h6.id = 'cardhead';
+        h6.textContent = "This card will be saved for a faster payment experience";
+
+        let p = document.createElement("p");
+        p.id = "cardpara";
+        p.textContent = "TrustPay: 100% Payment Protection, Easy Returns Policy";
+
+        cardInfo.append(cardNoLabel, cardinput, exDateLabel, exdateinput, cvvLabel, cvvinput, finalPaybtn, h6, p);
+
+        cardInfo.onsubmit = function (event) {
+            event.preventDefault();
+            alert("Payment Successfully Done");
+        }
+
+        contentDiv.append(contentHeadingDiv, cardInfo);
+        console.log("yoyoyo");
+
+    }
+    function cashON() {
+        let contentHeadingDiv = document.createElement('div');
+        contentHeadingDiv.textContent = 'Pay using Cash On Delivery';
+
+        let cashInfo = document.createElement('form');
+        cashInfo.id = "cashInfo";
+
+
+
+        let placeOrder = document.createElement('button');
+        placeOrder.textContent = 'PLACE COD ORDER';
+
+        cashInfo.append(placeOrder);
+
+        let p = document.createElement("p");
+        p.id = "cashpara";
+        p.textContent = "TrustPay: 100% Payment Protection, Easy Returns Policy";
+
+
+        let h6 = document.createElement("h6");
+        h6.id = "cashhead";
+        h6.textContent = "By placing the order, I have read and agreed to snapdeal.com's   Terms of Use  |  Terms of Sale";
+
+
+
+        cashInfo.onsubmit = function (event) {
+            event.preventDefault();
+            alert("Order Successfully Placed");
+        }
+
+        contentDiv.append(contentHeadingDiv, cashInfo, p, h6);
+        console.log("yoyo");
+    }
+
+    function upi() {
+        let contentHeadingDiv = document.createElement('div');
+        contentHeadingDiv.textContent = 'Pay using UPI';
+
+        let upiInfo = document.createElement('form');
+        upiInfo.id = "upiInfo";
+
+        let div1 = document.createElement("div");
+
+        let vpaInput = document.createElement('input');
+        vpaInput.type = "number";
+        vpaInput.required = true;
+
+
+        let varifylabel = document.createElement('label');
+        varifylabel.textContent = "VERIFY";
+        varifylabel.id = 'verify';
+
+        div1.append(vpaInput, varifylabel);
+
+        let finalPaybtn = document.createElement('button');
+        finalPaybtn.textContent = 'PAY RS.' + sum;
+
+        let div2 = document.createElement("div");
+        div2.append(finalPaybtn);
+
+        let p = document.createElement("p");
+        p.id = "upipara";
+        p.textContent = "TrustPay: 100% Payment Protection, Easy Returns Policy";
+
+        let h6 = document.createElement("h6");
+        h6.id = "upihead";
+        h6.textContent = "By placing the order, I have read and agreed to snapdeal.com's   Terms of Use  |  Terms of Sale";
+
+
+
+        upiInfo.append(div1, div2, p, h6);
+
+        upiInfo.onsubmit = function (event) {
+            event.preventDefault();
+            alert("Payment Successfully Done");
+        }
+
+        contentDiv.append(contentHeadingDiv, upiInfo);
+        console.log("yo");
+
+    }
+
+// fillCartContent();
+
+</script>
